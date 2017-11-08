@@ -6,7 +6,6 @@
 package Models;
 
 /**
- *
  * @author juanrmz
  */
 public class LoginResponse {

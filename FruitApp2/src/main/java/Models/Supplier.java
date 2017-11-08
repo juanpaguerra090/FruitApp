@@ -1,4 +1,7 @@
 package Models;
+
+import java.util.List;
+
 public class Supplier {
     String id;
     String name;
@@ -7,10 +10,10 @@ public class Supplier {
     float latitude;
     float longitude;
     String phonenumber;
-    String[] fruits;
-    String[] certificates;
+    List fruits;
+    List certificates;
     
-    public Supplier(String name, String lastname, String[] fruits, String[] certificates){
+    public Supplier(String name, String lastname, List fruits, List certificates){
         this.name = name;
         this.lastname = lastname;
         this.fruits = fruits;

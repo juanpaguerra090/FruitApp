@@ -10,8 +10,7 @@ import Models.Client;
 import java.io.IOException;
 
 /**
- *
- * @author bvlul
+ * @author Lucía Velasco
  */
 
 public class AddClient extends javax.swing.JFrame {
@@ -144,7 +143,7 @@ public class AddClient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientActionPerformed
-        
+
         client =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText());       
         try{
         test.post(client, "http://fruitappapi.azurewebsites.net/API/clients");

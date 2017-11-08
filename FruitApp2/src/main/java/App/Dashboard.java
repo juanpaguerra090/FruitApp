@@ -169,7 +169,8 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTN_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_logoutActionPerformed
-        // TODO add your handling code here:
+
+        this.setVisible(false);
     }//GEN-LAST:event_BTN_logoutActionPerformed
 
     private void BTN_addSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_addSupplierActionPerformed

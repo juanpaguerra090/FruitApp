@@ -1,5 +1,14 @@
 package App;
 
+import BackCom.HTTP;
+import Models.LoginRequest;
+import Models.Supplier;
+import java.io.IOException;
+import java.net.ProtocolException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /*
  * @author juanrmz
  */
@@ -21,7 +30,7 @@ public class LoginScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userTextField = new javax.swing.JTextField();
+        userField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         AppTitle = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -34,9 +43,9 @@ public class LoginScreen extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        userTextField.addActionListener(new java.awt.event.ActionListener() {
+        userField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTextFieldActionPerformed(evt);
+                userFieldActionPerformed(evt);
             }
         });
 
@@ -72,7 +81,7 @@ public class LoginScreen extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(35, 35, 35)
-                        .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(submitLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
@@ -88,7 +97,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addComponent(AppTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userTextField)
+                    .addComponent(userField)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -102,43 +111,37 @@ public class LoginScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextFieldActionPerformed
+    private void userFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTextFieldActionPerformed
+    }//GEN-LAST:event_userFieldActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void submitLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitLoginActionPerformed
-        // TODO  : Authentication
+        HTTP test = new HTTP("InitialToken");        
+        String psw;
+        psw = String.valueOf(this.passwordField.getPassword());
+        LoginRequest user = new LoginRequest( "fa.java", "secret", this.userField.getText(), psw, "password", "mainapi");       
+        try {
+            if(test.postAuth(user, "fa.java", "secret")){
+                Dashboard window_db = new Dashboard();
+                this.setVisible(false);
+                window_db.setVisible(true);             
+            }
+            else{
+                //Error en inicio de sesión
+                JOptionPane.showMessageDialog(this, "Credenciales Incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (ProtocolException ex) {
+            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_submitLoginActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginScreen().setVisible(true);
@@ -152,6 +155,6 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton submitLogin;
-    private javax.swing.JTextField userTextField;
+    private javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables
 }
