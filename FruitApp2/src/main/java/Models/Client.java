@@ -3,19 +3,19 @@ package Models;
 public class Client {
     String id;
     String name;
-    //String middlename;
-    String lastname;
+    String middleName;
+    String lastName;
     float latitude;
     float longitude;
-    String phonenumber;
-    String companyname;
+    String phoneNumber;
+    String companyName;
     
     public Client(String name, String lastname, String phonenumber, String companyname){
 
         this.name = name;
-        this.lastname = lastname;
-        this.phonenumber = phonenumber;
-        this.companyname = companyname;
+        this.lastName = lastname;
+        this.phoneNumber = phonenumber;
+        this.companyName = companyname;
     }
     
     public String getId(){
@@ -26,8 +26,12 @@ public class Client {
         return this.name;
     }
     
+    public String getMName(){
+        return this.middleName;
+    }
+    
     public String getLName(){
-        return this.lastname;
+        return this.lastName;
     }  
     public float getLatitude(){
         return this.latitude;
@@ -38,11 +42,11 @@ public class Client {
     } 
     
     public String getPhone(){
-        return this.phonenumber;
+        return this.phoneNumber;
     }
     
     public String getCompany(){
-        return this.companyname;
+        return this.companyName;
     }
     
     public void setName(String name){
@@ -50,7 +54,7 @@ public class Client {
     }
     
     public void setLName(String lastname){
-        this.lastname = lastname;
+        this.lastName = lastname;
     }  
     public void setLatitude(float latitude){
         this.latitude = latitude;
@@ -61,10 +65,10 @@ public class Client {
     } 
     
     public void setPhone(String phonenumber){
-        this.phonenumber = phonenumber;
+        this.phoneNumber = phonenumber;
     }
     
     public void setCompany(String companyname){
-        this.companyname = companyname;
+        this.companyName = companyname;
     }
 }

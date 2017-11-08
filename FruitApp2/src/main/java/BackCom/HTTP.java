@@ -5,6 +5,7 @@
  */
 package BackCom;
 import Models.Supplier;
+import Models.Client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,7 +51,30 @@ public class  HTTP <I> {
         return null;
     }
     
-    public String post(Supplier a, String dir) throws MalformedURLException, ProtocolException, IOException {
+    public Client[] getClient(String dir) throws MalformedURLException, IOException{
+        URL obj = new URL(dir);
+        HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
+        connect.setRequestMethod("GET");
+        connect.setRequestProperty("Authorization", "Bearer " + this.token);
+        int responseCode = connect.getResponseCode();
+        if(responseCode == HttpURLConnection.HTTP_OK){
+            BufferedReader in = new BufferedReader(new InputStreamReader (
+            connect.getInputStream()));
+            
+            String inputLine; 
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = in.readLine()) != null ){
+                response.append(inputLine);
+            }
+            in.close();
+            Type listType = new TypeToken<Client[]>(){}.getType();   
+            Client[] object = this.serializer.fromJson(response.toString(), listType);
+            return object;
+        }
+        return null;
+    }
+    
+    public String post(Object a, String dir) throws MalformedURLException, ProtocolException, IOException {
         // https://fruitappapi.azurewebsites.net/API/providers
         URL obj = new URL(dir);
         HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
