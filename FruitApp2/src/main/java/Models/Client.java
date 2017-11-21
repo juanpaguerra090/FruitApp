@@ -55,7 +55,12 @@ public class Client {
     
     public void setLName(String lastname){
         this.lastName = lastname;
+    }
+    
+    public void setMName(String middlename){
+        this.middleName = middlename;
     }  
+    
     public void setLatitude(float latitude){
         this.latitude = latitude;
     }

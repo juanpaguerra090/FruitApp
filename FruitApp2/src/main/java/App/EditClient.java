@@ -4,18 +4,66 @@
  * and open the template in the editor.
  */
 package App;
+import Models.Client;
+import BackCom.HTTP;
+import java.io.IOException;
+
 
 /**
  *
  * @author bvlul
  */
 public class EditClient extends javax.swing.JPanel {
+    private Client client;
+    HTTP test;
 
     /**
      * Creates new form EditClient
      */
-    public EditClient() {
+    public EditClient(Client x) {
+        test = new HTTP("hola");
+        client = x;
         initComponents();
+        setTextFields();
+        this.repaint();
+        send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendEvent(evt);
+            }
+        });
+    }
+    private void sendEvent(java.awt.event.ActionEvent evt){
+        client.setLName(lNameTF.getText());
+        client.setLatitude(Float.parseFloat(latTF.getText()));
+        client.setLongitude(Float.parseFloat(lonTF.getText()));
+        client.setMName(mNameTF.getText());
+        client.setName(nameTF.getText());
+        client.setPhone(phoneTF.getText());
+        client.setCompany(companyTF.getText());
+        System.out.println();
+        System.out.println(client.getLName());
+        System.out.println(Float.toString(client.getLatitude()));
+        System.out.println(Float.toString(client.getLongitude()));
+        System.out.println(client.getMName());
+        System.out.println(client.getName());
+        System.out.println(client.getPhone());
+        System.out.println(client.getCompany());
+        try{
+            test.put(client, "http://fruitappapi.azurewebsites.net/API/clients");
+        } catch (IOException e){
+            System.out.println(e); 
+        }
+    }
+    
+    private void setTextFields(){
+        lNameTF.setText(client.getLName());
+        latTF.setText(Float.toString(client.getLatitude()));
+        lonTF.setText(Float.toString(client.getLongitude()));
+        mNameTF.setText(client.getMName());
+        nameTF.setText(client.getName());
+        phoneTF.setText(client.getPhone());
+        companyTF.setText(client.getCompany());
+
     }
 
     /**
@@ -27,19 +75,157 @@ public class EditClient extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        nameTF = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        mNameTF = new javax.swing.JTextField();
+        lNameTF = new javax.swing.JTextField();
+        companyTF = new javax.swing.JTextField();
+        phoneTF = new javax.swing.JTextField();
+        latTF = new javax.swing.JTextField();
+        lonTF = new javax.swing.JTextField();
+        send = new javax.swing.JButton();
+
+        jLabel1.setText("Nombre:");
+
+        nameTF.setText("jTextField1");
+        nameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTFActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Segundo nombre:");
+
+        jLabel3.setText("Apellido:");
+
+        jLabel4.setText("Empresa:");
+
+        jLabel5.setText("Teléfono:");
+
+        jLabel6.setText("Latitud:");
+
+        jLabel7.setText("Longitud:");
+
+        mNameTF.setText("jTextField1");
+        mNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mNameTFActionPerformed(evt);
+            }
+        });
+
+        lNameTF.setText("jTextField1");
+
+        companyTF.setText("jTextField1");
+
+        phoneTF.setText("jTextField1");
+
+        latTF.setText("jTextField1");
+
+        lonTF.setText("jTextField1");
+
+        send.setText("Enviar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nameTF)
+                    .addComponent(mNameTF)
+                    .addComponent(lNameTF)
+                    .addComponent(companyTF)
+                    .addComponent(phoneTF)
+                    .addComponent(latTF)
+                    .addComponent(lonTF, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(send)
+                .addGap(163, 163, 163))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(mNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(companyTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(phoneTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(latTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lonTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(send)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTFActionPerformed
+        // TODO add your handling code here:
+                 System.out.println("HOOOOOOLIIIIIII");
+
+
+    }//GEN-LAST:event_nameTFActionPerformed
+
+    private void mNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mNameTFActionPerformed
+        // TODO add your handling code here:
+         System.out.println("HOOOOOOLIIIIIII");
+    }//GEN-LAST:event_mNameTFActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField companyTF;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField lNameTF;
+    private javax.swing.JTextField latTF;
+    private javax.swing.JTextField lonTF;
+    private javax.swing.JTextField mNameTF;
+    private javax.swing.JTextField nameTF;
+    private javax.swing.JTextField phoneTF;
+    private javax.swing.JButton send;
     // End of variables declaration//GEN-END:variables
 }

@@ -102,4 +102,33 @@ public class  HTTP <I> {
         }
         return null;
     }
+
+    public String put(Object a, String dir) throws MalformedURLException, ProtocolException, IOException {
+        // https://fruitappapi.azurewebsites.net/API/providers
+        URL obj = new URL(dir);
+        HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
+        connect.setRequestMethod("PUT");
+        connect.setDoOutput(true);
+        connect.setRequestProperty("Authorization", "Bearer " + this.token);
+        String gson = this.serializer.toJson(a);
+        connect.setRequestProperty("Content-Type", "Application/JSON");
+        
+        OutputStreamWriter wr = new OutputStreamWriter(connect.getOutputStream());
+        wr.write(gson);
+        wr.close();
+        if(connect.getResponseCode() == HttpURLConnection.HTTP_CREATED){
+             BufferedReader in = new BufferedReader(new InputStreamReader (
+            connect.getInputStream()));
+            
+            String inputLine; 
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = in.readLine()) != null ){
+                response.append(inputLine);
+            }
+            in.close();
+            Supplier newSupplier = this.serializer.fromJson(response.toString(), Supplier.class);
+            return newSupplier.getId(); 
+        }
+        return null;
+    }
 }

@@ -120,7 +120,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void submitLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitLoginActionPerformed
-        HTTP test = new HTTP("InitialToken");        
+        /*HTTP test = new HTTP("InitialToken");        
         String psw;
         psw = String.valueOf(this.passwordField.getPassword());
         LoginRequest user = new LoginRequest( "fa.java", "secret", this.userField.getText(), psw, "password", "mainapi");       
@@ -138,7 +138,7 @@ public class LoginScreen extends javax.swing.JFrame {
             Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_submitLoginActionPerformed
 
     public static void main(String args[]) {

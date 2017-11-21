@@ -5,16 +5,19 @@
  */
 package App;
 import java.awt.*;
-import java.lang.String;
+import App.EditClient;
 import Models.Client;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JDialog;
 /**
  *
  * @author bvlul
  */
 public class ClientLabel extends javax.swing.JPanel {
     Client client;
+    EditClient edWindow;
+    JDialog dial;
     /**
      * Creates new form ClientLabel
      */
@@ -37,6 +40,18 @@ public class ClientLabel extends javax.swing.JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.out.println("YEY");
+                
+                edWindow = new EditClient(client);
+                edWindow.setVisible(true);
+                
+                //edWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                edWindow.setVisible(true);
+                edWindow.setSize(400,400);
+                dial = new JDialog();
+                dial.setVisible(true);
+                dial.add(edWindow);
+                dial.pack();
+                dial.repaint();
             }
 
             @Override
