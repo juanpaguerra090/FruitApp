@@ -2,6 +2,7 @@ package App;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
 
 /**
  *
@@ -24,8 +25,7 @@ public class Dashboard extends javax.swing.JFrame {
         addSupplier = new AddSupplier();
         showClients = new ShowClients();
         ViewPanel.setVisible(true);
-
-        
+        ViewPanel.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);    
     }
 
     /**

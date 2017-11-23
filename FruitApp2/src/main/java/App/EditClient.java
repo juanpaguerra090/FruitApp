@@ -16,13 +16,15 @@ import java.io.IOException;
 public class EditClient extends javax.swing.JPanel {
     private Client client;
     HTTP test;
+    ShowClients showClients;
 
     /**
      * Creates new form EditClient
      */
-    public EditClient(Client x) {
+    public EditClient(Client x, ShowClients y) {
         test = new HTTP("hola");
         client = x;
+        showClients = y;
         initComponents();
         setTextFields();
         this.repaint();
@@ -40,19 +42,13 @@ public class EditClient extends javax.swing.JPanel {
         client.setName(nameTF.getText());
         client.setPhone(phoneTF.getText());
         client.setCompany(companyTF.getText());
-        System.out.println();
-        System.out.println(client.getLName());
-        System.out.println(Float.toString(client.getLatitude()));
-        System.out.println(Float.toString(client.getLongitude()));
-        System.out.println(client.getMName());
-        System.out.println(client.getName());
-        System.out.println(client.getPhone());
-        System.out.println(client.getCompany());
+
         try{
             test.put(client, "http://fruitappapi.azurewebsites.net/API/clients");
         } catch (IOException e){
             System.out.println(e); 
         }
+        showClients.showAllClients();
     }
     
     private void setTextFields(){
