@@ -42,6 +42,12 @@ public class AddClient extends javax.swing.JPanel {
         addClient = new javax.swing.JButton();
         companyName = new javax.swing.JTextField();
         empresa = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lat = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        lng = new javax.swing.JTextField();
+        nombre1 = new javax.swing.JLabel();
+        mName = new javax.swing.JTextField();
 
         jButton1.setText("Añadir Proveedor");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -50,9 +56,7 @@ public class AddClient extends javax.swing.JPanel {
             }
         });
 
-        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        nombre.setText("Nombre(s)");
+        nombre.setText("Nombre");
 
         apellidos.setText("Apellidos");
 
@@ -73,12 +77,30 @@ public class AddClient extends javax.swing.JPanel {
 
         empresa.setText("Empresa");
 
+        jLabel1.setText("Lat.");
+
+        lat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                latActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Long.");
+
+        lng.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lngActionPerformed(evt);
+            }
+        });
+
+        nombre1.setText("Segundo nombre");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nombre)
@@ -91,12 +113,20 @@ public class AddClient extends javax.swing.JPanel {
                                 .addComponent(tel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(areaCode, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(empresa))
+                            .addComponent(empresa)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(clientLName)
-                            .addComponent(clientPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(companyName))))
+                            .addComponent(clientPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(companyName)
+                            .addComponent(lat)
+                            .addComponent(lng)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nombre1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(mName, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -110,6 +140,10 @@ public class AddClient extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombre))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombre1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clientLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,12 +157,18 @@ public class AddClient extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(companyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(empresa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(addClient)
                 .addContainerGap())
         );
-
-      //  pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void areaCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaCodeActionPerformed
@@ -140,13 +180,21 @@ public class AddClient extends javax.swing.JPanel {
 
     private void addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientActionPerformed
 
-        client =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText());
+        client =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText(), mName.getText(), lat.getText(), lng.getText());
         try{
         test.post(client, "http://fruitappapi.azurewebsites.net/API/clients");
         } catch (IOException e){
             System.out.println(e);
         }
     }//GEN-LAST:event_addClientActionPerformed
+
+    private void latActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_latActionPerformed
+
+    private void lngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lngActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lngActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +218,14 @@ public class AddClient extends javax.swing.JPanel {
     private javax.swing.JTextField companyName;
     private javax.swing.JLabel empresa;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField lat;
+    private javax.swing.JTextField lng;
+    private javax.swing.JTextField mName;
     private javax.swing.JLabel nombre;
+    private javax.swing.JLabel nombre1;
     private javax.swing.JLabel tel;
     // End of variables declaration//GEN-END:variables
 }

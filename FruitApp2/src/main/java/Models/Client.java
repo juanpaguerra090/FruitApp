@@ -10,11 +10,14 @@ public class Client {
     String phoneNumber;
     String companyName;
     
-    public Client(String name, String lastname, String phonenumber, String companyname){
+    public Client(String name, String lastname, String phonenumber, String companyname, String mName, String lat, String lng){
 
         this.name = name;
         this.lastName = lastname;
+        this.middleName = mName;
         this.phoneNumber = phonenumber;
+        this.latitude = Float.parseFloat(lat);
+        this.longitude = Float.parseFloat(lng);
         this.companyName = companyname;
     }
     
