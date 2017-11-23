@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package App;
 
 import BackCom.HTTP;
@@ -13,8 +9,8 @@ import java.io.IOException;
  * @author Lucía Velasco
  */
 
-public class AddClient extends javax.swing.JFrame {
-    
+public class AddClient extends javax.swing.JPanel {
+
     HTTP test;
     Client client;
     /**
@@ -54,7 +50,7 @@ public class AddClient extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         nombre.setText("Nombre(s)");
 
@@ -77,8 +73,8 @@ public class AddClient extends javax.swing.JFrame {
 
         empresa.setText("Empresa");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -132,7 +128,7 @@ public class AddClient extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+      //  pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void areaCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaCodeActionPerformed
@@ -144,11 +140,11 @@ public class AddClient extends javax.swing.JFrame {
 
     private void addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientActionPerformed
 
-        client =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText());       
+        client =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText());
         try{
         test.post(client, "http://fruitappapi.azurewebsites.net/API/clients");
         } catch (IOException e){
-            System.out.println(e); 
+            System.out.println(e);
         }
     }//GEN-LAST:event_addClientActionPerformed
 

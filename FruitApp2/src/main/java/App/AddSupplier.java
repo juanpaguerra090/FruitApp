@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 /**
  * @author juanrmz
  */
-public class AddSupplier extends javax.swing.JFrame {
-    
+public class AddSupplier extends javax.swing.JPanel {
+
     List<String> fruitList = new ArrayList<String>();
     List<String> certList = new ArrayList<String>();
 
@@ -67,10 +67,9 @@ public class AddSupplier extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         cancelSupplier = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Añadir Proveedor");
+        //setTitle("Añadir Proveedor");
         setBackground(new java.awt.Color(153, 204, 255));
-        setResizable(false);
+        //setResizable(false);
 
         LBL_name.setText("Nombre(s)");
 
@@ -219,8 +218,8 @@ public class AddSupplier extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -375,7 +374,7 @@ public class AddSupplier extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        //pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void latitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latitudActionPerformed
@@ -447,13 +446,13 @@ public class AddSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_checkBoxUvaActionPerformed
 
     private void SumbitSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SumbitSupplierActionPerformed
-        
+
         HTTP test = new HTTP("InitialToken");
 //        Object[] supplierList = test.get("https://fruitappapi.azurewebsites.net/API/providers");
 //        System.out.println(supplierList[0].getId());
         try {
             Supplier testSupplier =  new Supplier(this.supplierName.getText(), this.supplierLName.getText(), this.fruitList,this.certList);
-            
+
             test.post(testSupplier, "https://fruitappapi.azurewebsites.net/API/providers");
         } catch (ProtocolException ex) {
             Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
@@ -585,8 +584,8 @@ public class AddSupplier extends javax.swing.JFrame {
     private void addFruitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFruitActionPerformed
         this.fruitList.add(this.otherFruit.getText());
         this.otherFruit.setText("");
-        
-        
+
+
     }//GEN-LAST:event_addFruitActionPerformed
 
     private void addCertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCertActionPerformed
@@ -612,8 +611,8 @@ public class AddSupplier extends javax.swing.JFrame {
         // System.out.println("bar.length = " + retArray.length);
         return retArray;
     }
-    
-    
+
+
     public static void main(String args[]) throws IOException {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -621,8 +620,8 @@ public class AddSupplier extends javax.swing.JFrame {
                 new AddSupplier().setVisible(true);
             }
         });
-        
-        
+
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBL_lName;

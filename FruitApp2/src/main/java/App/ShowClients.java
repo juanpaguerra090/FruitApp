@@ -31,23 +31,20 @@ public class ShowClients extends javax.swing.JFrame {
         } catch (Exception e){
             System.out.println(e);
         }
-        
-        showClients();
-        
+
+        showAllClients();
+
     }
-    public void showClients(){
-        int num = 0;
+    public void showAllClients(){
         javax.swing.JPanel cl, panel;
         panel = new javax.swing.JPanel();
         panel.setVisible(true);
         panel.setLayout(new GridLayout(0,1));
         jScrollPane1.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
         for(Client x: clients){
-            System.out.println(x.getLName());            
+            System.out.println(x.getLName());
             cl = new ClientLabel(x);
-            //cl.setVisible(true);
             panel.add(cl);
-            num+=500;
         }
         panel.repaint();
         //jScrollPane1.setBorder(null);
@@ -55,6 +52,7 @@ public class ShowClients extends javax.swing.JFrame {
         jScrollPane1.setVisible(true);
         jScrollPane1.repaint();
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,13 +65,12 @@ public class ShowClients extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Clientes");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -95,7 +92,7 @@ public class ShowClients extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        pack();
+        
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -105,7 +102,7 @@ public class ShowClients extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -124,13 +121,13 @@ public class ShowClients extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ShowClients.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-        
-        
+
+
+
 
         /* Create and display the form */
-        
-        
+
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ShowClients().setVisible(true);
