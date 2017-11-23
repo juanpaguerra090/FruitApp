@@ -186,8 +186,23 @@ public class AddClient extends javax.swing.JPanel {
         } catch (IOException e){
             System.out.println(e);
         }
+        
+        clear();
     }//GEN-LAST:event_addClientActionPerformed
-
+   
+    private void clear(){
+        
+        clientName.setText("");
+        clientLName.setText("");
+        areaCode.setText("");
+        clientPhone.setText("");
+        companyName.setText("");
+        mName.setText("");
+        lat.setText("");
+        lng.setText("");
+                
+                
+    }
     private void latActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_latActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_latActionPerformed
