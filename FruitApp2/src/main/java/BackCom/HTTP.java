@@ -28,7 +28,7 @@ public class  HTTP <I> {
         this.serializer = new GsonBuilder().create();
     }
     
-    public Supplier[] get(String dir) throws MalformedURLException, IOException{
+    public Supplier[] getSupplier(String dir) throws MalformedURLException, IOException{
         URL obj = new URL(dir);
         HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
         connect.setRequestMethod("GET");
