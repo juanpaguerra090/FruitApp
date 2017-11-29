@@ -12,7 +12,9 @@ public class Dashboard extends javax.swing.JFrame {
     
     AddClient addClient;
     AddSupplier addSupplier;
+    AddOrder addOrder;
     ShowClients showClients;
+    ShowOrders showOrders;
     
 
     /**
@@ -22,8 +24,10 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         initComponents2();
         addClient = new AddClient();
+        addOrder = new AddOrder();
         addSupplier = new AddSupplier();
         showClients = new ShowClients();
+        showOrders = new ShowOrders();
         ViewPanel.setVisible(true);
         ViewPanel.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);    
     }
@@ -72,6 +76,7 @@ public class Dashboard extends javax.swing.JFrame {
         BTN_addOrder = new javax.swing.JButton();
         BTN_getClients = new javax.swing.JButton();
         BTN_getOrders = new javax.swing.JButton();
+        BTN_getClients1 = new javax.swing.JButton();
         ViewPanel = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,6 +113,11 @@ public class Dashboard extends javax.swing.JFrame {
         BTN_addOrder.setToolTipText("");
         BTN_addOrder.setActionCommand("<html>Agregar <br>Pedido</html>");
         BTN_addOrder.setMargin(new java.awt.Insets(0, -25, 0, 2));
+        BTN_addOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_addOrderActionPerformed(evt);
+            }
+        });
 
         BTN_getClients.setText("<html>Ver Clientes</html>");
         BTN_getClients.setToolTipText("");
@@ -118,6 +128,21 @@ public class Dashboard extends javax.swing.JFrame {
         BTN_getOrders.setToolTipText("");
         BTN_getOrders.setActionCommand("<html>Agregar <br>Pedido</html>");
         BTN_getOrders.setMargin(new java.awt.Insets(0, -50, 0, 2));
+        BTN_getOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_getOrdersActionPerformed(evt);
+            }
+        });
+
+        BTN_getClients1.setText("<html>Ver Proveedores</html>");
+        BTN_getClients1.setToolTipText("");
+        BTN_getClients1.setActionCommand("<html>Agregar <br>Pedido</html>");
+        BTN_getClients1.setMargin(new java.awt.Insets(0, -50, 0, 2));
+        BTN_getClients1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_getClients1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout subMenuLayout = new javax.swing.GroupLayout(subMenu);
         subMenu.setLayout(subMenuLayout);
@@ -131,7 +156,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(BTN_addCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BTN_addOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BTN_getClients, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BTN_getOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BTN_getOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BTN_getClients1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(subMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(BTN_logout, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -152,7 +178,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(BTN_getOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTN_getClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BTN_getClients1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                 .addComponent(BTN_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -190,9 +218,22 @@ public class Dashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BTN_logoutActionPerformed
 
-    private void BTN_addOrderActionPerformed(java.awt.event.ActionEvent evt) {
-        //ViewPanel.add
-    }
+    private void BTN_getClients1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getClients1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_getClients1ActionPerformed
+
+    private void BTN_addOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_addOrderActionPerformed
+        // TODO add your handling code here:
+        ViewPanel.getViewport().setView(addOrder);
+    }//GEN-LAST:event_BTN_addOrderActionPerformed
+
+    private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getOrdersActionPerformed
+        // TODO add your handling code here:
+        showOrders.showAllOrders();
+        ViewPanel.getViewport().setView(showOrders);
+    }//GEN-LAST:event_BTN_getOrdersActionPerformed
+
+    
     
     private void BTN_addCustomerActionPerformed(java.awt.event.ActionEvent evt) {
         ViewPanel.getViewport().setView(addClient);        
@@ -203,9 +244,7 @@ public class Dashboard extends javax.swing.JFrame {
         ViewPanel.getViewport().setView(showClients);        
     }
     
-    private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {
-        //ViewPanel.add
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -223,6 +262,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton BTN_addOrder;
     private javax.swing.JButton BTN_addSupplier;
     private javax.swing.JButton BTN_getClients;
+    private javax.swing.JButton BTN_getClients1;
     private javax.swing.JButton BTN_getOrders;
     private javax.swing.JButton BTN_logout;
     private javax.swing.JScrollPane ViewPanel;
