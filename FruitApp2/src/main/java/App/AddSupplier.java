@@ -451,9 +451,16 @@ public class AddSupplier extends javax.swing.JPanel {
 //        Object[] supplierList = test.get("https://fruitappapi.azurewebsites.net/API/providers");
 //        System.out.println(supplierList[0].getId());
         try {
-            Supplier testSupplier =  new Supplier(this.supplierName.getText(), this.supplierLName.getText(), this.fruitList,this.certList);
-
-            test.post(testSupplier, "https://fruitappapi.azurewebsites.net/API/providers");
+            float lat, lon;
+            lat = Float.parseFloat(this.latitud.getText());
+            lon = Float.parseFloat(this.longitud.getText());
+            Supplier testSupplier =  new Supplier(this.supplierName.getText(), this.supplierLName.getText(), 
+                    this.fruitList,this.certList,
+                    lat, lon,
+                    this.areaCode.getText()+this.supplierPhone.getText());
+            // 9b1316ab.ngrok.io
+            //fruitappapi.azurewebsites.net
+            test.post(testSupplier, "http://fruitappapi.azurewebsites.net/API/providers");
         } catch (ProtocolException ex) {
             Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
