@@ -12,7 +12,7 @@ import java.io.IOException;
 public class AddClient extends javax.swing.JPanel {
 
     HTTP test;
-    Client client;
+    Client order;
     /**
      * Creates new form AddClient
      */
@@ -180,9 +180,9 @@ public class AddClient extends javax.swing.JPanel {
 
     private void addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientActionPerformed
 
-        client =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText(), mName.getText(), lat.getText(), lng.getText());
+        order =  new Client(clientName.getText(), clientLName.getText(), areaCode.getText()+clientPhone.getText(), companyName.getText(), mName.getText(), lat.getText(), lng.getText());
         try{
-        test.post(client, "http://fruitappapi.azurewebsites.net/API/clients");
+        test.post(order, "http://fruitappapi.azurewebsites.net/API/clients");
         } catch (IOException e){
             System.out.println(e);
         }

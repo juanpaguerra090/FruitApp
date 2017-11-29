@@ -15,7 +15,7 @@ import javax.swing.JDialog;
  * @author bvlul
  */
 public class ClientLabel extends javax.swing.JPanel {
-    Client client;
+    Client order;
     EditClient edWindow;
     ShowClients showClients;
     JDialog dial;
@@ -24,13 +24,13 @@ public class ClientLabel extends javax.swing.JPanel {
      */
     public ClientLabel(Client x, ShowClients y){
         initComponents();
-        client = x;
+        order = x;
         showClients = y;
-        String middleName = (client.getMName() == null)? "" : client.getMName();
-        this.Name.setText(client.getName()+" "+middleName+" "+client.getLName());
-        this.Comp.setText(client.getCompany());
-        this.phone.setText(client.getPhone());
-        this.pos.setText(client.getLatitude()+", "+client.getLongitude());
+        String middleName = (order.getMName() == null)? "" : order.getMName();
+        this.Name.setText(order.getName()+" "+middleName+" "+order.getLName());
+        this.Comp.setText(order.getCompany());
+        this.phone.setText(order.getPhone());
+        this.pos.setText(order.getLatitude()+", "+order.getLongitude());
         this.setVisible(true);
         this.setBackground(new Color(245,245,245));
         this.repaint();
@@ -122,7 +122,7 @@ public class ClientLabel extends javax.swing.JPanel {
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         // TODO add your handling code here:
-                        edWindow = new EditClient(client, showClients);
+                        edWindow = new EditClient(order, showClients);
                 edWindow.setVisible(true);
                 
                 //edWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -14,7 +14,7 @@ import java.io.IOException;
  * @author bvlul
  */
 public class EditClient extends javax.swing.JPanel {
-    private Client client;
+    private Client order;
     HTTP test;
     ShowClients showClients;
 
@@ -23,7 +23,7 @@ public class EditClient extends javax.swing.JPanel {
      */
     public EditClient(Client x, ShowClients y) {
         test = new HTTP("hola");
-        client = x;
+        order = x;
         showClients = y;
         initComponents();
         setTextFields();
@@ -35,16 +35,16 @@ public class EditClient extends javax.swing.JPanel {
         });
     }
     private void sendEvent(java.awt.event.ActionEvent evt){
-        client.setLName(lNameTF.getText());
-        client.setLatitude(Float.parseFloat(latTF.getText()));
-        client.setLongitude(Float.parseFloat(lonTF.getText()));
-        client.setMName(mNameTF.getText());
-        client.setName(nameTF.getText());
-        client.setPhone(phoneTF.getText());
-        client.setCompany(companyTF.getText());
+        order.setLName(lNameTF.getText());
+        order.setLatitude(Float.parseFloat(latTF.getText()));
+        order.setLongitude(Float.parseFloat(lonTF.getText()));
+        order.setMName(mNameTF.getText());
+        order.setName(nameTF.getText());
+        order.setPhone(phoneTF.getText());
+        order.setCompany(companyTF.getText());
 
         try{
-            test.put(client, "http://fruitappapi.azurewebsites.net/API/clients");
+            test.put(order, "http://fruitappapi.azurewebsites.net/API/clients");
         } catch (IOException e){
             System.out.println(e); 
         }
@@ -52,13 +52,13 @@ public class EditClient extends javax.swing.JPanel {
     }
     
     private void setTextFields(){
-        lNameTF.setText(client.getLName());
-        latTF.setText(Float.toString(client.getLatitude()));
-        lonTF.setText(Float.toString(client.getLongitude()));
-        mNameTF.setText(client.getMName());
-        nameTF.setText(client.getName());
-        phoneTF.setText(client.getPhone());
-        companyTF.setText(client.getCompany());
+        lNameTF.setText(order.getLName());
+        latTF.setText(Float.toString(order.getLatitude()));
+        lonTF.setText(Float.toString(order.getLongitude()));
+        mNameTF.setText(order.getMName());
+        nameTF.setText(order.getName());
+        phoneTF.setText(order.getPhone());
+        companyTF.setText(order.getCompany());
 
     }
 
