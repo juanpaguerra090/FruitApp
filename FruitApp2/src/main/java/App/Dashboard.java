@@ -13,13 +13,10 @@ public class Dashboard extends javax.swing.JFrame {
     AddClient addClient;
     AddSupplier addSupplier;
     ShowClients showClients;
-<<<<<<< HEAD
     ShowOrders showOrders;
     ShowHistory showHistory;
-=======
     ShowSuppliers showSuppliers;
     
->>>>>>> 9d956971b891d2c273963fd5ad5550bb23e94484
     
 
     /**
@@ -31,12 +28,9 @@ public class Dashboard extends javax.swing.JFrame {
         addClient = new AddClient();
         addSupplier = new AddSupplier();
         showClients = new ShowClients();
-<<<<<<< HEAD
         showOrders = new ShowOrders();
         showHistory = new ShowHistory();
-=======
         showSuppliers = new ShowSuppliers();
->>>>>>> 9d956971b891d2c273963fd5ad5550bb23e94484
         ViewPanel.setVisible(true);
         ViewPanel.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);    
     }
@@ -262,16 +256,15 @@ public class Dashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BTN_logoutActionPerformed
 
-<<<<<<< HEAD
     private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getOrdersActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BTN_getOrdersActionPerformed
-=======
+
     private void BTN_getProvidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getProvidersActionPerformed
        showSuppliers.showAllSuppliers();
        ViewPanel.getViewport().setView(showSuppliers);  
     }//GEN-LAST:event_BTN_getProvidersActionPerformed
->>>>>>> 9d956971b891d2c273963fd5ad5550bb23e94484
+
 
     private void BTN_addOrderActionPerformed(java.awt.event.ActionEvent evt) {
         //ViewPanel.add
@@ -286,10 +279,6 @@ public class Dashboard extends javax.swing.JFrame {
         ViewPanel.getViewport().setView(showClients);        
     }
     
-    private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {
-        
-        //ViewPanel.add
-    }
     /**
      * @param args the command line arguments
      */
