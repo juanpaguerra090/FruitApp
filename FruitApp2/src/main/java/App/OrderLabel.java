@@ -16,19 +16,18 @@ import javax.swing.JDialog;
  */
 public class OrderLabel extends javax.swing.JPanel {
     Order order;
-    //EditOrder edWindow;
     ShowOrders showOrders;
     JDialog dial;
-    /**
-     * Creates new form ClientLabel
-     */
     public OrderLabel(Order x, ShowOrders y){
         initComponents();
         order = x;
         showOrders = y;
         
         this.quantity.setText("" + order.getQuantity());
-        this.fruit.setText(order.getFruit());
+        this.name.setText(order.getName());
+        this.orderId.setText(order.getOrderId());
+        this.pendingQty.setText("" + order.getPendingQty());
+        
         this.setVisible(true);
         this.setBackground(new Color(245,245,245));
         this.repaint();
@@ -46,52 +45,85 @@ public class OrderLabel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        fruit = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         quantity = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        pendingQty = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        orderId = new javax.swing.JLabel();
 
         jLabel1.setText("Fruit");
 
         jLabel2.setText("Qty:");
 
-        fruit.setText("jLabel3");
+        name.setText("jLabel3");
 
         quantity.setText("jLabel3");
+
+        jLabel3.setText("Pending Qty");
+
+        pendingQty.setText("jLabel3");
+
+        jLabel4.setText("Order Id");
+
+        orderId.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fruit, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(quantity, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(83, 83, 83))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pendingQty)
+                    .addComponent(name)
+                    .addComponent(orderId)
+                    .addComponent(quantity))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(orderId))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(fruit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(name))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(quantity))
-                .addGap(50, 50, 50))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(pendingQty))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel fruit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel orderId;
+    private javax.swing.JLabel pendingQty;
     private javax.swing.JLabel quantity;
     // End of variables declaration//GEN-END:variables
 

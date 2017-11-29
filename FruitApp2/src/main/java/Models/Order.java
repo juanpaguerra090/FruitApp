@@ -13,25 +13,56 @@ public class Order {
     String orderId;
     String fruit;
     int quantity;
-    int pendingQuantity;
-    Transaction[] transactions;
+    int pendingQty;
+    String[] certificates;
+    float Latitude;
+    float Longitude;
     
-    public Order(String fruit, int quantity, int pendingQuantity, Transaction[] trans){
-        this.fruit = fruit;
+    public Order(int quantity, String fruit, String[] certs, float lat, float lon){
         this.quantity = quantity;
-        this.pendingQuantity = quantity;
-        this.transactions = trans;
+        this.fruit = fruit;
+        this.certificates = certs;
+        this.Latitude = lat;
+        this.Longitude = lon;
+    }
+
+    public float getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(float Latitude) {
+        this.Latitude = Latitude;
+    }
+
+    public float getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(float Longitude) {
+        this.Longitude = Longitude;
+    }
+    
+    public int getPendingQty() {
+        return pendingQty;
+    }
+
+    public void setPendingQty(int pendingQty) {
+        this.pendingQty = pendingQty;
+    }
+
+    public String[] getCerts() {
+        return certificates;
+    }
+
+    public void setCerts(String[] certs) {
+        this.certificates = certs;
     }
 
     public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getFruit() {
+    public String getName() {
         return fruit;
     }
 
@@ -45,27 +76,5 @@ public class Order {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public int getPendingQuantity() {
-        return pendingQuantity;
-    }
-
-    public void setPendingQuantity(int pendingQuantity) {
-        this.pendingQuantity = pendingQuantity;
-    }
-
-    public Transaction[] getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(Transaction[] transactions) {
-        this.transactions = transactions;
-    }
-    
-    
-    
-    
-    
-    
+    }   
 }

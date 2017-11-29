@@ -19,7 +19,7 @@ import static javax.swing.ScrollPaneConstants.*;
  */
 public class ShowOrders extends javax.swing.JPanel {
     HTTP test;
-    Order[] order;
+    Order[] orders;
     /**
      * Creates new form ShowClients
      */
@@ -27,22 +27,25 @@ public class ShowOrders extends javax.swing.JPanel {
         initComponents();
         test = new HTTP("hola");
         try{
-            order = test.getOrder("http://fruitappapi.azurewebsites.net/API/orders");
-        } catch (Exception e){
+            //orders = test.getOrder("http://fruitappapi.azurewebsites.net/API/orders");
+            orders = test.getOrder("http://b3409f06.ngrok.io/API/orders");
+            } catch (Exception e){
             System.out.println(e);
         }
-
         showAllOrders();
 
     }
+    
     public void showAllOrders(){
         javax.swing.JPanel cl2, panel;
         panel = new javax.swing.JPanel();
         panel.setVisible(true);
         panel.setLayout(new GridLayout(0,1));
         jScrollPane1.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
-        for(Order y: order){
-            System.out.println(y.getFruit());
+        
+        
+        for(Order y: orders){
+            System.out.println(y.getName());
             cl2 = new OrderLabel(y, this);
             panel.add(cl2);
         }

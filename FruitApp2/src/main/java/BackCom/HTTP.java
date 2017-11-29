@@ -46,7 +46,7 @@ public class  HTTP <I> {
                 response.append(inputLine);
             }
             in.close();
-            Type listType = new TypeToken<Supplier[]>(){}.getType();   
+            Type listType = new TypeToken<Order[]>(){}.getType();   
             Order[] object = this.serializer.fromJson(response.toString(), listType);
             return object;
         }
@@ -151,66 +151,8 @@ public class  HTTP <I> {
         return null;
     }
     
-    public String postOrder(Object a, String dir) throws MalformedURLException, ProtocolException, IOException {
-        // https://fruitappapi.azurewebsites.net/API/orders
-        URL obj = new URL(dir);
-        HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
-        connect.setRequestMethod("POST");
-        connect.setDoOutput(true);
-        connect.setRequestProperty("Authorization", "Bearer " + this.token);
-        String gson = this.serializer.toJson(a);
-        connect.setRequestProperty("Content-Type", "Application/JSON");
-        
-        OutputStreamWriter wr = new OutputStreamWriter(connect.getOutputStream());
-        wr.write(gson);
-        wr.close();
-        if(connect.getResponseCode() == HttpURLConnection.HTTP_CREATED){
-             BufferedReader in = new BufferedReader(new InputStreamReader (
-            connect.getInputStream()));
-            
-            String inputLine; 
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null ){
-                response.append(inputLine);
-            }
-            in.close();
-            Order newOrder = this.serializer.fromJson(response.toString(), Order.class);
-            return newOrder.getOrderId(); 
-        }
-        return null;
-    }
-    
-    public String postClient(Object a, String dir) throws MalformedURLException, ProtocolException, IOException {
-        // https://fruitappapi.azurewebsites.net/API/orders
-        URL obj = new URL(dir);
-        HttpURLConnection connect = (HttpURLConnection) obj.openConnection();
-        connect.setRequestMethod("POST");
-        connect.setDoOutput(true);
-        connect.setRequestProperty("Authorization", "Bearer " + this.token);
-        String gson = this.serializer.toJson(a);
-        connect.setRequestProperty("Content-Type", "Application/JSON");
-        
-        OutputStreamWriter wr = new OutputStreamWriter(connect.getOutputStream());
-        wr.write(gson);
-        wr.close();
-        if(connect.getResponseCode() == HttpURLConnection.HTTP_CREATED){
-             BufferedReader in = new BufferedReader(new InputStreamReader (
-            connect.getInputStream()));
-            
-            String inputLine; 
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null ){
-                response.append(inputLine);
-            }
-            in.close();
-            Client newClient = this.serializer.fromJson(response.toString(), Client.class);
-            return newClient.getId(); 
-        }
-        return null;
-    }
     
     
-
     public String put(Object a, String dir) throws MalformedURLException, ProtocolException, IOException {
         // https://fruitappapi.azurewebsites.net/API/providers
         URL obj = new URL(dir);

@@ -229,7 +229,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getOrdersActionPerformed
         // TODO add your handling code here:
-        //showOrders.showAllOrders();
+        showOrders.showAllOrders();
         ViewPanel.getViewport().setView(showOrders);
     }//GEN-LAST:event_BTN_getOrdersActionPerformed
 
