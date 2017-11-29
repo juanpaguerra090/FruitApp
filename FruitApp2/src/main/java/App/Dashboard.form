@@ -194,6 +194,9 @@
               <Insets value="[0, -50, 0, 2]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_getOrdersActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

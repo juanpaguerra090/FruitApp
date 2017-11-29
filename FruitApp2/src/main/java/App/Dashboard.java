@@ -13,6 +13,8 @@ public class Dashboard extends javax.swing.JFrame {
     AddClient addClient;
     AddSupplier addSupplier;
     ShowClients showClients;
+    ShowOrders showOrders;
+    ShowHistory showHistory;
     
 
     /**
@@ -24,6 +26,8 @@ public class Dashboard extends javax.swing.JFrame {
         addClient = new AddClient();
         addSupplier = new AddSupplier();
         showClients = new ShowClients();
+        showOrders = new ShowOrders();
+        showHistory = new ShowHistory();
         ViewPanel.setVisible(true);
         ViewPanel.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);    
     }
@@ -124,6 +128,11 @@ public class Dashboard extends javax.swing.JFrame {
         BTN_getOrders.setToolTipText("");
         BTN_getOrders.setActionCommand("<html>Agregar <br>Pedido</html>");
         BTN_getOrders.setMargin(new java.awt.Insets(0, -50, 0, 2));
+        BTN_getOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_getOrdersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout subMenuLayout = new javax.swing.GroupLayout(subMenu);
         subMenu.setLayout(subMenuLayout);
@@ -229,6 +238,10 @@ public class Dashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BTN_logoutActionPerformed
 
+    private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getOrdersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_getOrdersActionPerformed
+
     private void BTN_addOrderActionPerformed(java.awt.event.ActionEvent evt) {
         //ViewPanel.add
     }
@@ -243,6 +256,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     private void BTN_getOrdersActionPerformed(java.awt.event.ActionEvent evt) {
+        
         //ViewPanel.add
     }
     /**
