@@ -462,8 +462,8 @@ public class AddSupplier extends javax.swing.JPanel {
             //fruitappapi.azurewebsites.net
            System.out.println(testSupplier.getName());
             
-            test.post(testSupplier, "http://c37b82ed.ngrok.io/API/providers");
-            //test.post(testSupplier, "http://fruitappapi.azurewebsites.net/API/providers");
+            //test.post(testSupplier, "http://c37b82ed.ngrok.io/API/providers");
+            test.post(testSupplier, "http://fruitappapi.azurewebsites.net/API/providers");
         } catch (ProtocolException ex) {
             Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

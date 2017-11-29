@@ -10,7 +10,7 @@ public class AddOrder extends javax.swing.JPanel {
 
     HTTP test;
     Order order;
-    Transaction[] trans = {};
+    String[] certsArr = {"USA", "MX"};
     
     
     public AddOrder() {
@@ -34,6 +34,15 @@ public class AddOrder extends javax.swing.JPanel {
         addClient = new javax.swing.JButton();
         nombre1 = new javax.swing.JLabel();
         productQty = new javax.swing.JTextField();
+        certificados = new javax.swing.JLabel();
+        boxUSA = new javax.swing.JCheckBox();
+        boxEU = new javax.swing.JCheckBox();
+        boxSA = new javax.swing.JCheckBox();
+        boxMX = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tfLat = new javax.swing.JTextField();
+        tfLon = new javax.swing.JTextField();
 
         jButton1.setText("Añadir Proveedor");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +62,40 @@ public class AddOrder extends javax.swing.JPanel {
 
         nombre1.setText("Cantidad que se necesita");
 
+        certificados.setText("Certificados");
+
+        boxUSA.setText("Cert USA");
+        boxUSA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxUSAActionPerformed(evt);
+            }
+        });
+
+        boxEU.setText("Cert EU");
+        boxEU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxEUActionPerformed(evt);
+            }
+        });
+
+        boxSA.setText("Cert SA");
+        boxSA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxSAActionPerformed(evt);
+            }
+        });
+
+        boxMX.setText("Cert MX");
+        boxMX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxMXActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Latitude");
+
+        jLabel2.setText("Longitude");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,34 +104,73 @@ public class AddOrder extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(addClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(nombre1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(nombre)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(productQty, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(productName, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(89, 89, 89))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(nombre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(nombre1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(certificados))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(boxUSA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(boxEU)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(boxSA))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(boxMX))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(tfLat, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tfLon, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap()
                 .addComponent(nombre)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(productName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(productQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(certificados)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boxUSA)
+                    .addComponent(boxEU)
+                    .addComponent(boxSA)
+                    .addComponent(boxMX))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfLat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfLon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(addClient)
                 .addContainerGap())
         );
@@ -99,15 +181,40 @@ public class AddOrder extends javax.swing.JPanel {
 
     private void addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClientActionPerformed
 
-        order = new Order(productName.getText(), Integer.parseInt(productQty.getText()), 0, trans);
+        int x = Integer.parseInt(productQty.getText());
+        String name = productName.getText();
+        float latf = Float.parseFloat(tfLat.getText());
+        float lonf = Float.parseFloat(tfLon.getText());
+        
+        order = new Order(x, name, certsArr, latf, lonf);
+        
+            
+        System.out.println("soy order " + name);
         try{
-        test.postOrder(order, "http://fruitappapi.azurewebsites.net/API/order");
+            test.post(order, "http://fruitappapi.azurewebsites.net/API/orders");
         } catch (IOException e){
-            System.out.println(e);
+            System.out.println("exception, "+ e);
         }
         
         clear();
+        
     }//GEN-LAST:event_addClientActionPerformed
+
+    private void boxUSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxUSAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxUSAActionPerformed
+
+    private void boxEUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxEUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxEUActionPerformed
+
+    private void boxSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxSAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxSAActionPerformed
+
+    private void boxMXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxMXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxMXActionPerformed
    
     private void clear(){
         
@@ -130,11 +237,20 @@ public class AddOrder extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addClient;
+    private javax.swing.JCheckBox boxEU;
+    private javax.swing.JCheckBox boxMX;
+    private javax.swing.JCheckBox boxSA;
+    private javax.swing.JCheckBox boxUSA;
+    private javax.swing.JLabel certificados;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel nombre1;
     private javax.swing.JTextField productName;
     private javax.swing.JTextField productQty;
+    private javax.swing.JTextField tfLat;
+    private javax.swing.JTextField tfLon;
     // End of variables declaration//GEN-END:variables
 }

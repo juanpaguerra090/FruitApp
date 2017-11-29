@@ -216,8 +216,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_BTN_addSupplierActionPerformed
 
     private void BTN_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_logoutActionPerformed
-
+        LoginScreen ls = new LoginScreen();
         this.setVisible(false);
+        ls.setVisible(true);
     }//GEN-LAST:event_BTN_logoutActionPerformed
 
     private void BTN_getSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_getSupplierActionPerformed

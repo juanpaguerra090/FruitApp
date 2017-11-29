@@ -16,19 +16,18 @@ import javax.swing.JDialog;
  */
 public class OrderLabel extends javax.swing.JPanel {
     Order order;
-    //EditOrder edWindow;
     ShowOrders showOrders;
     JDialog dial;
-    /**
-     * Creates new form ClientLabel
-     */
     public OrderLabel(Order x, ShowOrders y){
         initComponents();
         order = x;
         showOrders = y;
         
-        this.quantity.setText("" + order.getQuantity());
-        this.fruit.setText(order.getFruit());
+        this.lbQty.setText("" + order.getQuantity());
+        this.lbFruit.setText(order.getName());
+        this.lbID.setText(order.getOrderId());
+        this.lbPending.setText("" + order.getPendingQty());
+        
         this.setVisible(true);
         this.setBackground(new Color(245,245,245));
         this.repaint();
@@ -44,55 +43,94 @@ public class OrderLabel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        fruit = new javax.swing.JLabel();
-        quantity = new javax.swing.JLabel();
+        lbFruit = new javax.swing.JLabel();
+        lbQty = new javax.swing.JLabel();
+        pos = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lbPending = new javax.swing.JLabel();
+        lbID = new javax.swing.JLabel();
 
-        jLabel1.setText("Fruit");
+        jLabel3.setText("jLabel3");
 
-        jLabel2.setText("Qty:");
+        jLabel1.setText("No. Orden:");
 
-        fruit.setText("jLabel3");
+        jLabel2.setText("Fruta:");
 
-        quantity.setText("jLabel3");
+        lbFruit.setText("jLabel3");
+
+        lbQty.setText("jLabel3");
+
+        pos.setText("Cantidad:");
+
+        jLabel4.setText("Cant. Pendiente:");
+
+        lbPending.setText("jLabel5");
+
+        lbID.setText("jLabel5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fruit, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(quantity, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(99, 99, 99)
+                        .addComponent(lbID))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbPending))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(pos)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbQty))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbFruit))))
                 .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(fruit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lbID))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(quantity))
-                .addGap(50, 50, 50))
+                    .addComponent(lbFruit)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbQty)
+                    .addComponent(pos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(lbPending))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel fruit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel quantity;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbFruit;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbPending;
+    private javax.swing.JLabel lbQty;
+    private javax.swing.JLabel pos;
     // End of variables declaration//GEN-END:variables
 
 
