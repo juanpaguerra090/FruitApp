@@ -65,7 +65,7 @@
                           <Component id="BTN_addOrder" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                           <Component id="BTN_getClients" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                           <Component id="BTN_getOrders" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
-                          <Component id="BTN_getClients1" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                          <Component id="BTN_getSupplier" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="BTN_logout" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -92,7 +92,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BTN_getClients" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BTN_getClients1" min="-2" max="-2" attributes="0"/>
+                  <Component id="BTN_getSupplier" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="172" max="32767" attributes="0"/>
                   <Component id="BTN_logout" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -176,7 +176,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_getOrdersActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BTN_getClients1">
+        <Component class="javax.swing.JButton" name="BTN_getSupplier">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Ver Proveedores&lt;/html&gt;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -186,7 +186,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_getClients1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_getSupplierActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

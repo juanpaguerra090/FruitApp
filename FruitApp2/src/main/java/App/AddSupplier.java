@@ -446,22 +446,30 @@ public class AddSupplier extends javax.swing.JPanel {
     }//GEN-LAST:event_checkBoxUvaActionPerformed
 
     private void SumbitSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SumbitSupplierActionPerformed
-
         HTTP test = new HTTP("InitialToken");
 //        Object[] supplierList = test.get("https://fruitappapi.azurewebsites.net/API/providers");
 //        System.out.println(supplierList[0].getId());
         try {
-            Supplier testSupplier =  new Supplier(this.supplierName.getText(), this.supplierLName.getText(), this.fruitList,this.certList);
-
-            test.post(testSupplier, "https://fruitappapi.azurewebsites.net/API/providers");
+            float lat, lon;
+            lat = Float.parseFloat(this.latitud.getText());
+            lon = Float.parseFloat(this.longitud.getText());
+            List frutilupis = new ArrayList<String>(this.fruitList);
+            Supplier testSupplier =  new Supplier(this.supplierName.getText(), this.supplierLName.getText(), 
+                    frutilupis,this.certList,
+                    lat, lon,
+                    this.areaCode.getText()+this.supplierPhone.getText());
+            // 9b1316ab.ngrok.io
+            //fruitappapi.azurewebsites.net
+           System.out.println(testSupplier.getName());
+            
+            test.post(testSupplier, "http://c37b82ed.ngrok.io/API/providers");
+            //test.post(testSupplier, "http://fruitappapi.azurewebsites.net/API/providers");
         } catch (ProtocolException ex) {
             Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Dashboard window_db = new Dashboard();
-        this.setVisible(false);
-        window_db.setVisible(true);
+        repaint();
     }//GEN-LAST:event_SumbitSupplierActionPerformed
 
     private void checkBoxNaranjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNaranjaActionPerformed

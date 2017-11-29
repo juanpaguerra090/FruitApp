@@ -49,6 +49,7 @@ public class EditClient extends javax.swing.JPanel {
             System.out.println(e); 
         }
         showClients.showAllClients();
+        this.setVisible(false);
     }
     
     private void setTextFields(){
@@ -59,7 +60,6 @@ public class EditClient extends javax.swing.JPanel {
         nameTF.setText(order.getName());
         phoneTF.setText(order.getPhone());
         companyTF.setText(order.getCompany());
-
     }
 
     /**

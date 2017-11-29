@@ -120,25 +120,30 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void submitLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitLoginActionPerformed
-        /*HTTP test = new HTTP("InitialToken");        
+        HTTP test = new HTTP("InitialToken");        
         String psw;
         psw = String.valueOf(this.passwordField.getPassword());
         LoginRequest user = new LoginRequest( "fa.java", "secret", this.userField.getText(), psw, "password", "mainapi");       
         try {
-            if(test.postAuth(user, "fa.java", "secret")){
+            //c37b82ed.ngrok.io
+            String url = "http://fruitappapi.azurewebsites.net/connect/token";
+            String token = test.postAuth(url, user, "fa.java", "secret");
+            if(token != null && !token.isEmpty()){
+                System.out.println("Success");
                 Dashboard window_db = new Dashboard();
                 this.setVisible(false);
-                window_db.setVisible(true);             
+                window_db.setVisible(true);  
             }
             else{
                 //Error en inicio de sesión
+               System.out.println("No success");
                 JOptionPane.showMessageDialog(this, "Credenciales Incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (ProtocolException ex) {
             Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }//GEN-LAST:event_submitLoginActionPerformed
 
     public static void main(String args[]) {

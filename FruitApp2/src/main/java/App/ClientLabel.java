@@ -122,7 +122,7 @@ public class ClientLabel extends javax.swing.JPanel {
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
         // TODO add your handling code here:
-                        edWindow = new EditClient(order, showClients);
+                edWindow = new EditClient(order, showClients);
                 edWindow.setVisible(true);
                 
                 //edWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

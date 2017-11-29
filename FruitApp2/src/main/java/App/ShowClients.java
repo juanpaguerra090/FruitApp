@@ -33,6 +33,7 @@ public class ShowClients extends javax.swing.JPanel {
         }
 
         showAllClients();
+        repaint();
 
     }
     public void showAllClients(){

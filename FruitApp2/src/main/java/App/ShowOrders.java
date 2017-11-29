@@ -33,6 +33,7 @@ public class ShowOrders extends javax.swing.JPanel {
         }
 
         showAllOrders();
+        repaint();
 
     }
     public void showAllOrders(){
