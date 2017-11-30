@@ -469,7 +469,10 @@ public class AddSupplier extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(AddSupplier.class.getName()).log(Level.SEVERE, null, ex);
         }
-        repaint();
+        Dashboard db = new Dashboard();
+        this.setVisible(false);
+        db.setVisible(true);
+        
     }//GEN-LAST:event_SumbitSupplierActionPerformed
 
     private void checkBoxNaranjaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxNaranjaActionPerformed

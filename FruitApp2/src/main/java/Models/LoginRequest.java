@@ -22,6 +22,6 @@ public class LoginRequest {
     }
     
     public String serialize() throws UnsupportedEncodingException{
-        return ("username="+this.username+"&password="+URLEncoder.encode(this.password,"UTF-8")+"&grant_type="+this.grant_type+"&scopes="+this.scope+"&client_id="+this.client_id+"&client_secret="+this.client_secret);
+        return ("username="+this.username+"&password="+this.password+"&grant_type="+this.grant_type+"&scopes="+this.scope+"&client_id="+this.client_id+"&client_secret="+this.client_secret);
     }
 }

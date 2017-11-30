@@ -40,7 +40,7 @@ public class EditSupplier extends javax.swing.JPanel {
         supplier.setLon(Float.parseFloat(longitud.getText()));
         supplier.setName(supplierName.getText());
         supplier.setMName("");
-        supplier.setPhone(areaCode.getText() + " " + supplierPhone.getText());
+        supplier.setPhone(areaCode.getText()+ supplierPhone.getText());
        
 
         try{

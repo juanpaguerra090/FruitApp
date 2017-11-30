@@ -18,8 +18,9 @@ public class Order {
     float Latitude;
     float Longitude;
     
-    public Order(int quantity, String fruit, String[] certs, float lat, float lon){
+    public Order(int quantity, int pendingQty,  String fruit, String[] certs, float lat, float lon){
         this.quantity = quantity;
+        this.pendingQty = pendingQty;
         this.fruit = fruit;
         this.certificates = certs;
         this.Latitude = lat;

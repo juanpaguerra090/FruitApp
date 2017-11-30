@@ -22,10 +22,11 @@ public class OrderLabel extends javax.swing.JPanel {
         initComponents();
         order = x;
         showOrders = y;
+        this.lbID.setText(order.getOrderId());
+        this.lbFruit.setText(order.getName());
         
         this.lbQty.setText("" + order.getQuantity());
-        this.lbFruit.setText(order.getName());
-        this.lbID.setText(order.getOrderId());
+        
         this.lbPending.setText("" + order.getPendingQty());
         
         this.setVisible(true);
@@ -80,21 +81,20 @@ public class OrderLabel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(99, 99, 99)
-                        .addComponent(lbID))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbPending))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(pos)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbQty))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(lbID)
+                        .addGap(31, 31, 31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbFruit))))
+                            .addComponent(pos)
+                            .addComponent(jLabel4))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbPending)
+                            .addComponent(lbQty)
+                            .addComponent(lbFruit))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
@@ -109,11 +109,11 @@ public class OrderLabel extends javax.swing.JPanel {
                     .addComponent(lbFruit)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbQty)
-                    .addComponent(pos))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pos)
+                    .addComponent(lbQty))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lbPending))
                 .addGap(20, 20, 20))

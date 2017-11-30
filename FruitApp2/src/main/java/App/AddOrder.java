@@ -186,17 +186,21 @@ public class AddOrder extends javax.swing.JPanel {
         float latf = Float.parseFloat(tfLat.getText());
         float lonf = Float.parseFloat(tfLon.getText());
         
-        order = new Order(x, name, certsArr, latf, lonf);
+        order = new Order(x, x, name, certsArr, latf, lonf);
         
             
         System.out.println("soy order " + name);
         try{
             test.post(order, "http://fruitappapi.azurewebsites.net/API/orders");
+            //test.post(order, "http://b3409f06.ngrok.io/API/orders");
         } catch (IOException e){
             System.out.println("exception, "+ e);
         }
         
         clear();
+        Dashboard db = new Dashboard();
+        this.setVisible(false);
+        db.setVisible(true);
         
     }//GEN-LAST:event_addClientActionPerformed
 
